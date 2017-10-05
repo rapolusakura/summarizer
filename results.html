@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<form action="/results/" method="POST">
+    {% csrf_token %}
+    <br/><input id="text" style='padding:5px;margin: 20px' type='text' name='number' placeholder="How many sentences?"/>
+    <br/><textarea id="number" style='padding:5px' type='text' name='subject' rows=3 cols=50 autocomplete="off" placeholder="What would you like to summarize?"></textarea>
+    <br/><input id="run" type="submit" value="Summarize Text"/>
+</form>
+{% endblock %}

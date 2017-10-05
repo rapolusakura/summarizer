@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h1>About Us</h1>
+<p>Sakura Rapolu : Liza Moody : Nicole Rocha</p>
+<img src="{% static 'sakura_headshot.jpg' %}"  alt="Sakura Headshot" style="max-width:128px;max-height:128px;hieght:auto;width:auto">
+<img src="{% static 'liza_headshot.jpg' %}"liza_headshot.jpg alt="Liza Headshot" style="max-width:128px;max-height:128px;hieght:auto;width:auto">
+<img src="{% static 'nicole_headshot.jpg' %}" alt="Nicole Headshot" style="max-width:128px;max-height:128px;hieght:auto;width:auto">
+<p> We are Girls Who Code students at Twitter who came together to create an algorithm that summarizes documents. It analyzes an article and returns the main points. In a world filled with busy schedules and fake news, it is important that everyone stays informed. We hope that our tool will help people obtain briefs update on what is happening in the world and allow them to form their own opinions. </p>
+{% endblock %}

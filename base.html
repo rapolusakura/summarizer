@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<html><head>
+  <title>TL;DR</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+</head>
+<body>
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/about/">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+
+<div id="main">
+<span id="navButton" onclick="openNav()">&#9776; </span>
+<div id="pagewrap">
+<div id="title" onlick="document.location='index.html'"><span>T L ; D R</div>
+
+{% block content %}
+{% endblock %}
+
+{% if result %}
+<div id="output">
+    <span class='heading'>Summary: </span>
+    <br/><p style="font-family: sans-serif;text-align:center;">{{ result }}</p>
+{% endif %}
+{% if chars %}
+    <br/><span class='heading'>Common Characters: </span>
+    {% for char in chars %}
+        <p style="font-family: sans-serif;text-align:center;">
+        {% for ch in char %}
+            {{ ch }}
+        {% endfor %}
+        </p>
+    {% endfor %}
+{% endif %}
+{% if others %}
+    <br/><span class='heading'>Most common places, nationalities, organizations: </span>
+    {% for entity in others %}
+        <p style="font-family: sans-serif;text-align:center;">
+        {% for ents in entity %}
+            {{ ents }}
+        {% endfor %}
+        </p>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+</div>
+</div>
+  <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+  </script>
+</body></html>
